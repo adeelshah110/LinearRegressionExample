@@ -37,9 +37,18 @@ print(prediction)
 from sklearn import linear_model
 import pandas as pd
 import matplotlib.pyplot as plt
-df = pd.read_csv("c:/Users/HIMAT/Desktop/machinelearnign/datasets/age.csv")
-df
-reg = linear_model.LinearRegression()
-reg.fit(df[["age"]], df["weight"])
-pr = reg.predict([[33]])
-print (pr)
+
+                 
+d = pd.read_csv("c:/Users/HIMAT/Desktop/machinelearnign/datasets/predict.csv")
+
+p = reg.predict(d)
+
+d["prices"] = p
+
+#d.to_csv("c:/Users/HIMAT/Desktop/machinelearnign/datasets/predicts_prices.csv",index= False)
+
+plt.xlabel('area(sq ft)')
+plt.ylabel("price(us$)")
+plt.scatter(df.area, df.price, color ="red", marker ="+")
+plt.plot(df.area, reg.predict(df[["area"]]), color ="blue")
+# Import necessary libraries
